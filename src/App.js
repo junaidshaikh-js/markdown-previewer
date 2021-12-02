@@ -69,25 +69,27 @@ function App() {
   }
 
   return (
-    <main>
-      <section class="editor-section">
-        <ToolBar
-          text="Editor"
-          onClick={handleEditorClick}
-          icon="fa fa-arrows-alt"
-        />
-        <Editor onChange={handleChange} markdown={markdown} />
-      </section>
+    <div className="main-wrapper">
+      <main>
+        <section class="editor-section">
+          <ToolBar
+            text="Editor"
+            onClick={handleEditorClick}
+            icon="fa fa-arrows-alt"
+          />
+          <Editor onChange={handleChange} markdown={markdown} />
+        </section>
 
-      <section className="preview-section">
-        <ToolBar
-          text="Previewer"
-          onClick={handlePreviewClick}
-          icon="fa fa-arrows-alt"
-        />
-        <Preview markdown={markdown} />
-      </section>
-    </main>
+        <section className="preview-section">
+          <ToolBar
+            text="Previewer"
+            onClick={handlePreviewClick}
+            icon="fa fa-arrows-alt"
+          />
+          <Preview markdown={markdown} />
+        </section>
+      </main>
+    </div>
   );
 }
 
