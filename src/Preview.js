@@ -14,14 +14,14 @@ marked.setOptions({
 const Preview = ({ markdown }) => {
   const rawMarkup = marked(markdown);
   return (
-    <section>
+    <>
       <div
         id="preview"
         dangerouslySetInnerHTML={{
           __html: rawMarkup,
         }}
       ></div>
-    </section>
+    </>
   );
 };
 
