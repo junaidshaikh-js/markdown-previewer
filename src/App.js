@@ -1,9 +1,10 @@
 import { useState } from "react";
 
-import "./App.css";
+import "./App.scss";
 
 import Editor from "./Editor";
 import Preview from "./Preview";
+import ToolBar from "./Toolbar";
 
 const placeholder = `# Welcome to my React Markdown Previewer!
 
@@ -52,15 +53,40 @@ And here. | Okay. | I think we get it.
 
 function App() {
   const [markdown, setMarkdown] = useState(placeholder);
+  const [isEditorMaximized, setIsEditorMaximized] = useState(false);
+  const [isPreviewerMaximized, setIsPreviewerMaximized] = useState(false);
 
   function handleChange(e) {
     setMarkdown(e.target.value);
   }
 
+  function handleEditorClick() {
+    setIsEditorMaximized(true);
+  }
+
+  function handlePreviewClick() {
+    setIsPreviewerMaximized(true);
+  }
+
   return (
     <main>
-      <Editor onChange={handleChange} markdown={markdown} />
-      <Preview markdown={markdown} />
+      <section class="editor-section">
+        <ToolBar
+          text="Editor"
+          onClick={handleEditorClick}
+          icon="fa fa-arrows-alt"
+        />
+        <Editor onChange={handleChange} markdown={markdown} />
+      </section>
+
+      <section className="preview-section">
+        <ToolBar
+          text="Previewer"
+          onClick={handlePreviewClick}
+          icon="fa fa-arrows-alt"
+        />
+        <Preview markdown={markdown} />
+      </section>
     </main>
   );
 }
