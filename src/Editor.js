@@ -1,14 +1,12 @@
 const Editor = ({ markdown, onChange }) => {
   return (
-    <section>
+    <div id="editor">
       <textarea
-        id="editor"
-        cols="30"
-        rows="10"
+        id="editor-text"
         value={markdown}
         onChange={onChange}
       ></textarea>
-    </section>
+    </div>
   );
 };
 
