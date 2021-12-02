@@ -1,0 +1,50 @@
+$background: #619e9e;
+$darkAccent: #224b4b;
+$border: 2px solid darken($background, 25%);
+$basePadding: 1rem;
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  background: lighten($background, 12%);
+}
+
+main {
+  margin: 2rem;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 1rem;
+  background: lighten($darkAccent, 25%);
+}
+
+.editor-section {
+  margin-bottom: 1rem;
+  border: $border;
+  font-size: 1rem;
+
+  textarea {
+    width: 100%;
+    min-height: 250px;
+  }
+}
+
+.preview-section {
+  border: $border;
+
+  #preview {
+    padding: $basePadding;
+  }
+}
