@@ -11,12 +11,13 @@ marked.setOptions({
   breaks: true,
 });
 
-const Preview = ({ markdown }) => {
+const Preview = ({ markdown, className }) => {
   const rawMarkup = marked(markdown);
   return (
     <>
       <div
         id="preview"
+        className={className}
         dangerouslySetInnerHTML={{
           __html: rawMarkup,
         }}

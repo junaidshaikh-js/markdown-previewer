@@ -61,32 +61,42 @@ function App() {
   }
 
   function handleEditorClick() {
-    setIsEditorMaximized(true);
+    setIsEditorMaximized(!isEditorMaximized);
   }
 
   function handlePreviewClick() {
-    setIsPreviewerMaximized(true);
+    setIsPreviewerMaximized(!isPreviewerMaximized);
   }
+
+  const classes = isEditorMaximized
+    ? ["fa fa-compress", "editor-maximized", "null", "preview-section hide"]
+    : isPreviewerMaximized
+    ? ["null", "hide", "fa fa-compress"]
+    : ["fa fa-arrows-alt", "editor-minimized", "fa fa-arrows-alt"];
 
   return (
     <div className="main-wrapper">
       <main>
-        <section class="editor-section">
+        <section className="editor-section">
           <ToolBar
             text="Editor"
             onClick={handleEditorClick}
-            icon="fa fa-arrows-alt"
+            icon={classes[0]}
           />
-          <Editor onChange={handleChange} markdown={markdown} />
+          <Editor
+            onChange={handleChange}
+            markdown={markdown}
+            className={classes[1]}
+          />
         </section>
 
         <section className="preview-section">
           <ToolBar
             text="Previewer"
             onClick={handlePreviewClick}
-            icon="fa fa-arrows-alt"
+            icon={classes[2]}
           />
-          <Preview markdown={markdown} />
+          <Preview markdown={markdown} className={classes[3]} />
         </section>
       </main>
     </div>

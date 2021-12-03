@@ -1,6 +1,6 @@
-const Editor = ({ markdown, onChange }) => {
+const Editor = ({ markdown, onChange, className }) => {
   return (
-    <div id="editor">
+    <div id="editor" className={className}>
       <textarea
         id="editor-text"
         value={markdown}
