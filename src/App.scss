@@ -1,7 +1,6 @@
 $background: #619e9e;
 $darkAccent: #224b4b;
 $border: 2px solid darken($background, 25%);
-$basePadding: 1rem;
 $shadow: 2px 2px 10px 2px darken($background, 30%);
 
 html {
@@ -12,7 +11,6 @@ html {
 *::before,
 *::after {
   margin: 0;
-  padding: 0;
   box-sizing: inherit;
 }
 
@@ -67,9 +65,54 @@ main {
   @extend .common-style;
 
   #preview {
-    padding: $basePadding;
-    line-height: 1.5;
+    line-height: 2;
   }
 }
 
 // markdown style
+
+#preview {
+  padding: 0 1rem;
+  color: darken($darkAccent, 30%);
+
+  > * {
+    margin: 5px auto;
+  }
+  code {
+    padding: 2px 10px;
+    background: white;
+  }
+
+  pre {
+    background: white;
+    overflow: auto;
+  }
+
+  blockquote {
+    margin-left: 10px;
+    padding: 5px 10px;
+    color: #083131;
+    border-left: 3px solid $darkAccent;
+  }
+
+  table {
+    border-collapse: collapse;
+    border: 2px solid $darkAccent;
+
+    td,
+    th {
+      padding: 5px;
+      border: 2px solid $darkAccent;
+    }
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  ul,
+  ol {
+    padding: auto;
+  }
+}
