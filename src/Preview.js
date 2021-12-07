@@ -1,11 +1,6 @@
 import { marked } from "marked";
-import Prism from "prismjs";
 
 marked.setOptions({
-  highlight: function (code) {
-    return Prism.highlight(code, Prism.languages.javascript, "javascript");
-  },
-
   gfm: true,
   headerIds: false,
   breaks: true,
